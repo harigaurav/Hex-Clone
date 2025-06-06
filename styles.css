@@ -154,6 +154,98 @@ body {
     font-size: 16px;
 }
 
+/* Mobile Menu */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 30px;
+    padding: 20px;
+}
+
+.mobile-nav-item {
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    text-align: center;
+}
+
+.mobile-nav-item:hover {
+    color: #ff6b35;
+}
+
+.mobile-menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.mobile-menu-buttons .btn-primary,
+.mobile-menu-buttons .btn-secondary {
+    width: 100%;
+    justify-content: center;
+}
+
 /* Main Content */
 .main-content {
     max-width: 1200px;
@@ -966,12 +1058,147 @@ body {
     transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+    .section-container {
+        max-width: 1400px;
+    }
+
+    .hero-title {
+        font-size: 72px;
+    }
+
+    .section-title {
+        font-size: 56px;
+    }
+}
+
+/* Desktop (1024px to 1199px) */
+@media (max-width: 1199px) {
+    .section-container {
+        max-width: 1000px;
+    }
+
+    .hero-section {
+        gap: 60px;
+    }
+
+    .features-grid {
+        gap: 30px;
+    }
+}
+
+/* Tablet (768px to 1023px) */
+@media (max-width: 1023px) {
+    .nav-container {
+        padding: 0 20px;
+    }
+
+    .main-content {
+        padding: 0 20px;
+    }
+
+    .section-container {
+        padding: 0 20px;
+    }
+
+    .hero-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+        padding: 60px 0;
+    }
+
+    .hero-title {
+        font-size: 48px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Mobile Large (481px to 767px) */
+@media (max-width: 767px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-right {
+        gap: 8px;
+        position: relative;
+    }
+
+    .nav-right .btn-secondary,
+    .nav-right .btn-primary {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
     .feature-showcase-item,
     .feature-showcase-item.content-left,
     .feature-showcase-item.image-left {
         grid-template-columns: 1fr;
         gap: 30px;
+        padding: 20px;
     }
 
     /* Reset order for mobile - always show content first, then image */
@@ -990,8 +1217,322 @@ body {
         padding: 0 20px;
     }
 
+    .one-home-section,
+    .analytics-section {
+        padding: 80px 0;
+    }
+
+    .section-header {
+        margin-bottom: 60px;
+    }
+
+    .feature-showcase {
+        gap: 60px;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-bottom-container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .company-logos {
+        gap: 24px;
+    }
+
+    .logo-item {
+        font-size: 14px;
+    }
+}
+
+/* Mobile Small (320px to 480px) */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 16px;
+    }
+
+    .main-content {
+        padding: 0 16px;
+    }
+
+    .section-container {
+        padding: 0 16px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+    }
+
+    .btn-primary.large, .btn-secondary.large {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
     .section-title {
-        font-size: 36px;
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .section-subtitle {
+        font-size: 14px;
+    }
+
+    .feature-card {
+        padding: 16px;
+    }
+
+    .feature-title {
+        font-size: 18px;
+    }
+
+    .feature-description {
+        font-size: 13px;
+    }
+
+    .feature-showcase-item h3 {
+        font-size: 20px;
+    }
+
+    .feature-showcase-item p {
+        font-size: 14px;
+    }
+
+    .testimonial-box {
+        padding: 30px 20px;
+        min-height: 200px;
+    }
+
+    .testimonial-quote {
+        font-size: 14px;
+    }
+
+    .testimonial-logo {
+        font-size: 20px;
+    }
+
+    .page-container {
+        padding: 10px;
+    }
+
+    .one-home-section,
+    .analytics-section,
+    .testimonials-section {
+        padding: 60px 0;
+    }
+
+    .trusted-section {
+        padding: 60px 0;
+    }
+
+    .footer {
+        padding: 40px 0 0;
+        margin-top: 60px;
+    }
+
+    .footer-container {
+        padding: 0 16px;
+    }
+
+    .company-logos {
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .logo-item {
+        font-size: 12px;
+    }
+}
+
+/* Extra responsive utilities */
+@media (max-width: 767px) {
+    /* Hide complex animations on mobile for better performance */
+    .feature-showcase-item:hover {
+        transform: none;
+    }
+
+    .feature-card:hover {
+        transform: none;
+    }
+
+    /* Improve touch targets */
+    .btn-primary, .btn-secondary {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Better spacing for mobile */
+    .feature-showcase {
+        gap: 40px;
+        margin-top: 60px;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    /* Improve readability */
+    .section-description {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    /* Better video container on mobile */
+    .hero-video-container {
+        margin-top: 20px;
+    }
+
+    /* Improve banner on mobile */
+    .top-banner {
+        font-size: 12px;
+        padding: 6px 0;
+    }
+
+    .banner-content {
+        gap: 12px;
+    }
+}
+
+/* Additional responsive utilities and accessibility improvements */
+@media (max-width: 1023px) {
+    /* Improve touch targets on tablets */
+    .nav-item {
+        padding: 8px 12px;
+        border-radius: 6px;
+    }
+
+    .preview-tab {
+        padding: 16px 12px;
+        font-size: 14px;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .feature-icon img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero-section {
+        padding: 40px 0;
+        min-height: auto;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .mobile-menu-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+    }
+
+    .mobile-nav-item {
+        font-size: 18px;
+    }
+
+    .mobile-menu-buttons {
+        flex-direction: row;
+        margin-top: 20px;
+        max-width: 400px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .top-banner,
+    .navbar,
+    .mobile-menu,
+    .hero-video-container,
+    .footer {
+        display: none;
+    }
+
+    .hero-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .section-title,
+    .hero-title {
+        color: #000 !important;
+        -webkit-text-fill-color: #000 !important;
+    }
+
+    .page-container {
+        border: none;
+        padding: 0;
+    }
+
+    .page-container::before {
+        display: none;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .banner-content {
+        animation: none;
+    }
+}
+
+/* Dark mode support (if user prefers dark) */
+@media (prefers-color-scheme: dark) {
+    /* The site is already dark, but we can enhance it */
+    .page-container {
+        background-color: #000000;
+    }
+
+    .testimonial-box {
+        background: #111111;
+    }
+}
+
+/* Focus styles for accessibility */
+.btn-primary:focus,
+.btn-secondary:focus,
+.mobile-menu-toggle:focus,
+.nav-item:focus {
+    outline: 2px solid #ff6b35;
+    outline-offset: 2px;
+}
+
+/* Ensure minimum contrast ratios */
+@media (prefers-contrast: high) {
+    .section-description,
+    .hero-subtitle,
+    .feature-description {
+        color: #ffffff;
+    }
+
+    .testimonial-quote {
+        color: #ffffff;
     }
 }
 
