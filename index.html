@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hex - Go deeper than dashboards</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="banner-content">
+            <span class="banner-icon">🎯</span>
+            <span>SF June 2-4 for Summit? Join us at Club Hex!</span>
+            <span class="banner-divider">|</span>
+            <span class="banner-icon">❄️</span>
+            <span>Snowflake Summit 2025: how modern data teams are ditching legacy tools and playbooks</span>
+            <span class="banner-divider">|</span>
+            <span class="banner-icon">📢</span>
+            <span>Announcing Hex's $70M Series C: doubling down on the modern data stack</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <span class="logo-text">HEX</span>
+                </div>
+                <div class="nav-links">
+                    <div class="nav-item dropdown">
+                        <span>Product</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <span>Use cases</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <span>Enterprise</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <span>Resources</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </div>
+                    <div class="nav-item">Pricing</div>
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="btn-secondary">Log in</button>
+                <button class="btn-primary">Get started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="hero-section">
+            <div class="hero-left">
+                <h1 class="hero-title">Go deeper than dashboards</h1>
+                <p class="hero-subtitle">
+                    Hex is the AI-powered analytics workspace built for teams driving faster answers and better decisions.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-primary large">
+                        <span class="btn-icon">⚡</span>
+                        Get started
+                    </button>
+                    <button class="btn-secondary large">Request a demo</button>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-video-container">
+                    <video autoplay muted loop controls>
+                        <source src="what-is-hex.mp4" type="video/mp4">
+                        <div class="video-placeholder">
+                            <div class="play-button">▶</div>
+                            <p>What is Hex - Analytics Platform Demo</p>
+                        </div>
+                    </video>
+                    <div class="video-overlay">
+                        <div class="video-controls">
+                            <button class="video-play-btn" id="playPauseBtn">⏸️</button>
+                            <button class="video-fullscreen-btn" id="fullscreenBtn">⛶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- One Home Section -->
+        <section class="one-home-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">One home for<br>analytics, AI, and apps</h2>
+                    <p class="section-subtitle">
+                        Hex allows teams to work together across one platform, making it easy to find answers in
+                        your data, share them with stakeholders, and make decisions with confidence.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iIzFhMWExYSIvPgo8cGF0aCBkPSJNMTAgMTBoMjB2MjBIMTBWMTB6IiBmaWxsPSIjZmY2YjM1Ii8+CjwvdGc+Cjwvc3ZnPgo=" alt="Notebooks">
+                        </div>
+                        <div class="feature-badge">NOTEBOOKS</div>
+                        <h3 class="feature-title">Deep-dive analytics</h3>
+                        <p class="feature-description">
+                            Explore data with code, charts, and prose.
+                            Import data from any source, analyze it with
+                            Python, R, or SQL, and share your findings
+                            with stakeholders.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iIzFhMWExYSIvPgo8Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxMCIgZmlsbD0iI2ZmOGMwMCIvPgo8L3N2Zz4K" alt="Data Apps">
+                        </div>
+                        <div class="feature-badge">DATA APPS</div>
+                        <h3 class="feature-title">Publish and share</h3>
+                        <p class="feature-description">
+                            Turn analyses into interactive apps that
+                            anyone can use. Build dashboards, reports,
+                            and tools that make your insights accessible
+                            to everyone.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iIzFhMWExYSIvPgo8cGF0aCBkPSJNMTAgMTVoMjB2MTBIMTBWMTV6IiBmaWxsPSIjNjBhNWZhIi8+CjwvdGc+Cjwvc3ZnPgo=" alt="Self-Serve">
+                        </div>
+                        <div class="feature-badge">SELF-SERVE</div>
+                        <h3 class="feature-title">Get quick answers</h3>
+                        <p class="feature-description">
+                            Enable anyone to explore data, ask questions,
+                            and get answers without writing code.
+                            Democratize analytics across your organization.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="platform-preview">
+                    <div class="preview-tabs">
+                        <span class="preview-tab active">MAGIC AI</span>
+                        <span class="preview-tab">SQL GENERATION</span>
+                        <span class="preview-tab">VISUALIZATION</span>
+                        <span class="preview-tab">SHARING</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics Section -->
+        <section class="analytics-section">
+            <div class="section-container">
+                <div class="analytics-content">
+                    <div class="analytics-left">
+                        <div class="section-badge">NOTEBOOKS</div>
+                        <h2 class="section-title">Fast, flexible,<br>collaborative analytics</h2>
+                        <p class="section-description">
+                            Hex's notebooks are built for the analyses that actually matter. With an
+                            integrated toolkit, you no longer need to jump between tools to query,
+                            predict, transform, and visualize data.
+                        </p>
+
+                        <div class="analytics-features">
+                            <div class="analytics-feature">
+                                <h4>SQL and Python, living together in harmony</h4>
+                                <p>Go back and forth between queries and scripts, without jumping between tools.</p>
+                            </div>
+
+                            <div class="analytics-feature">
+                                <h4>Explore with point-and-click no-code tools</h4>
+                                <p>Use charts & easy to filter, pivot, and plot your results between writing code.</p>
+                            </div>
+
+                            <div class="analytics-feature">
+                                <h4>Magical AI: just a prompt away</h4>
+                                <p>Use Hex's integrated Magic AI tools to get an intelligent assist, whenever you ask.</p>
+                            </div>
+
+                            <div class="analytics-feature">
+                                <h4>Make data a team sport</h4>
+                                <p>Real-time collaboration, commenting, and version control.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-right">
+                        <div class="analytics-preview">
+                            <div class="preview-header">
+                                <div class="preview-title">Vantage Revenue Forecast</div>
+                                <div class="preview-controls">
+                                    <button class="preview-btn">Share</button>
+                                    <button class="preview-btn">Comment</button>
+                                </div>
+                            </div>
+                            <div class="preview-content">
+                                <div class="preview-chart">
+                                    <canvas id="analyticsChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-showcase">
+                    <div class="feature-showcase-grid">
+                        <div class="feature-showcase-item">
+                            <div class="feature-icon">
+                                <span>🔄</span>
+                            </div>
+                            <h3>SQL and Python, living together in harmony</h3>
+                            <p>Go back and forth between queries and scripts, without jumping between tools.</p>
+                            <div class="feature-image">
+                                <img src="images/sql-python-feature.png" alt="SQL and Python integration">
+                            </div>
+                        </div>
+                        
+                        <div class="feature-showcase-item">
+                            <div class="feature-icon">
+                                <span>🔍</span>
+                            </div>
+                            <h3>Explore with point-and-click no-code tools</h3>
+                            <p>Use charts & easy to filter, pivot, and plot your results between writing code.</p>
+                            <div class="feature-image">
+                                <img src="images/no-code-tools.png" alt="No-code exploration tools">
+                            </div>
+                        </div>
+                        
+                        <div class="feature-showcase-item">
+                            <div class="feature-icon">
+                                <span>✨</span>
+                            </div>
+                            <h3>Magical AI, just a prompt away</h3>
+                            <p>Use Hex's integrated Magic AI tools to get an intelligent assist, whenever you ask.</p>
+                            <div class="feature-image">
+                                <img src="images/magic-ai.png" alt="Magic AI assistant">
+                            </div>
+                        </div>
+                        
+                        <div class="feature-showcase-item">
+                            <div class="feature-icon">
+                                <span>👥</span>
+                            </div>
+                            <h3>Make data a team sport</h3>
+                            <p>Real-time collaboration, commenting, and version control.</p>
+                            <div class="feature-image">
+                                <img src="images/team-collaboration.png" alt="Team collaboration">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials">
+                        <div class="testimonial">
+                            <div class="testimonial-logo">Hackberry</div>
+                            <p class="testimonial-quote">"We generated over a million dollars in value from a faster, more precise replenishment model."</p>
+                            <div class="testimonial-author">
+                                <span>Tim C.</span>
+                                <span class="testimonial-role">Data Scientist, Hackberry</span>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial">
+                            <div class="testimonial-logo">ClickUp</div>
+                            <p class="testimonial-quote">"We needed a tool with the flexibility for anyone on any team to explore and build. Hex has become a critical part of the business, the insights that for ClickUp and has helped our teams save millions of dollars in cost."</p>
+                            <div class="testimonial-author">
+                                <span>Eric S.</span>
+                                <span class="testimonial-role">Head of Analytics Eng. at ClickUp</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted By Section -->
+        <div class="trusted-section">
+            <div class="trusted-content">
+                <p class="trusted-text">TRUSTED BY LEADING DATA COMPANIES</p>
+                <div class="company-logos">
+                    <div class="logo-item">reddit</div>
+                    <div class="logo-item">notion</div>
+                    <div class="logo-item">ANTHROPIC</div>
+                    <div class="logo-item">SEAT GEEK</div>
+                    <div class="logo-item">ClickUp</div>
+                    <div class="logo-item">algolia</div>
+                    <div class="logo-item">AllTrails</div>
+                    <div class="logo-item">MODERN TREASURY</div>
+                    <div class="logo-item">ramp</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <span class="logo-text">HEX</span>
+                </div>
+                <p class="footer-tagline">Made with ❤️ on 🌍.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Customers</a></li>
+                        <li><a href="#">Media Kit</a></li>
+                        <li><a href="#">Newsroom</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>PRODUCT</h4>
+                    <ul>
+                        <li><a href="#">Notebooks</a></li>
+                        <li><a href="#">Explore</a></li>
+                        <li><a href="#">Hex Magic</a></li>
+                        <li><a href="#">Enterprise</a></li>
+                        <li><a href="#">For Teams</a></li>
+                        <li><a href="#">App Builder</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Docs</a></li>
+                        <li><a href="#">Quickstart</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Templates</a></li>
+                        <li><a href="#">Changelog</a></li>
+                        <li><a href="#">Trust Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>CONTACT</h4>
+                    <ul>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Sales</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Email us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="social-icons">
+                    <span>🐦</span>
+                    <span>📧</span>
+                    <span>💼</span>
+                    <span>📱</span>
+                    <span>🎥</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>© 2025 Hex Technologies Inc.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Terms & conditions</a>
+                    <a href="#">Modern slavery statement</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
