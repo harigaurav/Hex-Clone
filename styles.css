@@ -346,12 +346,11 @@ body {
 }
 
 .feature-card {
-    background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-    border-radius: 16px;
-    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    transition: all 0.3s ease;
+    padding: 20px;
 }
 
 .feature-card:hover {
@@ -372,8 +371,9 @@ body {
 }
 
 .feature-icon img {
-    width: 40px;
-    height: 40px;
+    width: 200px; /* Adjust this value to make the image bigger */
+    height: auto;
+    margin-bottom: 16px;
 }
 
 .feature-badge {
@@ -386,6 +386,10 @@ body {
     font-weight: 600;
     letter-spacing: 1px;
     margin-bottom: 16px;
+}
+
+.feature-card .feature-badge {
+    margin-top: 18px; /* Adds extra space between the image and the badge text */
 }
 
 .feature-title {
@@ -718,90 +722,50 @@ body {
 /* Feature Showcase Styles */
 .feature-showcase {
     margin-top: 80px;
-}
-
-.feature-showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-bottom: 60px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: stretch;
+    overflow-x: hidden; /* Remove horizontal scroll */
+    padding: 20px 0;
 }
 
 .feature-showcase-item {
+    flex: 1 1 0; /* Each box grows to fill available space equally */
     background: #1a1a1a;
     border: 1px solid #2a2a2a;
     border-radius: 12px;
-    padding: 24px;
+    padding: 16px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    margin: 0 8px; /* Optional: small side margins, adjust as needed */
 }
 
+/* Optional hover effect remains unchanged */
 .feature-showcase-item:hover {
+    transform: translateY(-5px);
     border-color: #ff6b35;
     background: #1f1f1f;
 }
 
-.feature-showcase-item.active h3 {
-    color: #ff6b35;
-}
-
-.feature-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 107, 53, 0.1);
-    border-radius: 8px;
-    margin-bottom: 16px;
-}
-
-.feature-icon span {
-    font-size: 20px;
-}
-
-.feature-showcase-item h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #ffffff;
-    transition: color 0.3s ease;
-}
-
-.feature-showcase-item p {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 20px;
-}
-
-.feature-image {
-    border-radius: 8px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.feature-image img {
-    width: 100%;
-    display: block;
-    border-radius: 8px;
-}
-
 /* Testimonials */
 .testimonials {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 0;
 }
 
 .testimonial {
-    background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-    border-radius: 12px;
-    padding: 32px;
-    transition: all 0.3s ease;
+    flex: 1 1 calc(50% - 20px); /* Adjusts to display two testimonials per row */
+    background-color: #1a1a1a;  /* Optional: gives a background for contrast */
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
 }
 
 .testimonial:hover {
@@ -920,5 +884,42 @@ body {
     .section-title {
         font-size: 36px;
     }
+}
+
+.page-container {
+    position: relative;
+    border: 2px solid #fff;
+    width: 100%;
+    min-height: 100vh; /* Ensure it fills at least the viewport height */
+    margin: 0; /* Remove margins so it fills the space */
+    padding: 20px;
+    background-color: #0a0a0a; /* Base background */
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.page-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure inner content appears over the pattern */
+.page-container > * {
+    position: relative;
+    z-index: 1;
+}
+
+.feature-image {
+    display: none;
 }
 
