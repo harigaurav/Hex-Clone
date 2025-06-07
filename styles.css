@@ -163,8 +163,8 @@ body {
     justify-content: space-around;
     width: 32px;
     height: 32px;
-    background: transparent;
-    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
     padding: 4px;
     z-index: 1001;
@@ -173,16 +173,17 @@ body {
 }
 
 .mobile-menu-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .mobile-menu-toggle span {
-    width: 100%;
-    height: 3px;
+    width: 20px;
+    height: 2px;
     background: #ffffff;
     border-radius: 2px;
     transition: all 0.3s ease;
     display: block;
+    margin: 0 auto;
 }
 
 .mobile-menu-toggle.active span:nth-child(1) {
@@ -204,7 +205,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(10, 10, 10, 0.95);
+    background: black;
     backdrop-filter: blur(10px);
     z-index: 1000;
     opacity: 0;
@@ -1160,72 +1161,107 @@ body {
     }
 }
 
-/* Mobile Large (481px to 767px) */
+/* Mobile Navigation - Critical Fixes */
 @media (max-width: 767px) {
+    /* Force navbar visibility */
     .navbar {
-        padding: 12px 0;
-        background-color: #0a0a0a;
-        position: sticky;
-        top: 0;
-        z-index: 1100;
-        width: 100%;
+        padding: 12px 0 !important;
+        background-color: #0a0a0a !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1100 !important;
+        width: 100% !important;
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+        border-bottom: 1px solid #1a1a1a !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
     }
 
+    /* Force nav container visibility */
     .nav-container {
-        padding: 0 16px;
+        padding: 0 16px !important;
         display: flex !important;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        max-width: none;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: 60px !important;
     }
 
+    /* Force logo visibility */
     .nav-left {
-        gap: 20px;
-        display: flex;
-        align-items: center;
+        gap: 20px !important;
+        display: flex !important;
+        align-items: center !important;
     }
 
     .logo {
-        font-size: 20px;
-        display: block !important;
+        font-size: 20px !important;
+        display: flex !important;
+        align-items: center !important;
         visibility: visible !important;
+        opacity: 1 !important;
+        color: #ffffff !important;
     }
 
     .logo-text {
         display: block !important;
         visibility: visible !important;
+        color: #ffffff !important;
     }
 
+    /* Hide desktop navigation */
     .nav-links {
-        display: none;
+        display: none !important;
     }
 
+    /* Force nav-right visibility */
     .nav-right {
-        gap: 8px;
-        position: relative;
-        align-items: center;
+        gap: 8px !important;
+        position: relative !important;
+        align-items: center !important;
         display: flex !important;
+        visibility: visible !important;
     }
 
+    /* Hide desktop buttons */
     .nav-right .btn-secondary,
     .nav-right .btn-primary {
-        display: none;
+        display: none !important;
     }
 
+    /* Force mobile menu toggle visibility */
     .mobile-menu-toggle {
         display: flex !important;
-        position: relative;
-        z-index: 1102;
+        position: relative !important;
+        z-index: 1102 !important;
         visibility: visible !important;
         opacity: 1 !important;
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: 4px !important;
+        width: 32px !important;
+        height: 32px !important;
     }
 
+    .mobile-menu-toggle span {
+        background: #ffffff !important;
+        display: block !important;
+        width: 20px !important;
+        height: 2px !important;
+    }
+
+    /* Mobile menu */
     .mobile-menu {
-        display: block;
+        display: block !important;
+    }
+
+    /* Add top padding to main content to account for fixed navbar */
+    .main-content {
+        padding-top: 80px !important;
     }
 
     .btn-primary, .btn-secondary {
