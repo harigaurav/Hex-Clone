@@ -1,24 +1,10 @@
-// Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize video functionality
     initializeVideo();
-
-    // Initialize analytics chart
     initializeAnalyticsChart();
-    
-    // Initialize feature showcase
     initializeFeatureShowcase();
-
-    // Initialize interactive tabs
     initializeTabs();
-
-    // Add smooth scrolling for navigation
     addSmoothScrolling();
-
-    // Add interactive effects
     addInteractiveEffects();
-
-    // Initialize mobile menu
     initializeMobileMenu();
 });
 
@@ -31,21 +17,18 @@ function initializeVideo() {
 
     if (!video) return;
 
-    // Handle video loading
     video.addEventListener('loadeddata', function() {
         if (placeholder) {
             placeholder.style.display = 'none';
         }
     });
 
-    // Handle video error - show placeholder
     video.addEventListener('error', function() {
         if (placeholder) {
             placeholder.style.display = 'flex';
         }
     });
 
-    // Handle placeholder play button click
     if (playButton) {
         playButton.addEventListener('click', function() {
             if (video.paused) {
@@ -57,7 +40,6 @@ function initializeVideo() {
         });
     }
 
-    // Handle overlay play/pause button
     if (playPauseBtn) {
         playPauseBtn.addEventListener('click', function() {
             if (video.paused) {
@@ -70,7 +52,6 @@ function initializeVideo() {
         });
     }
 
-    // Handle fullscreen button
     if (fullscreenBtn) {
         fullscreenBtn.addEventListener('click', function() {
             if (video.requestFullscreen) {
@@ -83,7 +64,6 @@ function initializeVideo() {
         });
     }
 
-    // Update play/pause button based on video state
     video.addEventListener('play', function() {
         if (playPauseBtn) playPauseBtn.textContent = '⏸️';
     });
@@ -92,7 +72,6 @@ function initializeVideo() {
         if (playPauseBtn) playPauseBtn.textContent = '▶️';
     });
 
-    // Add hover effects to video container
     const videoContainer = document.querySelector('.hero-video-container');
     if (videoContainer) {
         videoContainer.addEventListener('mouseenter', function() {
@@ -111,11 +90,10 @@ function initializeAnalyticsChart() {
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
-    const width = canvas.width = canvas.offsetWidth * 2;
-    const height = canvas.height = canvas.offsetHeight * 2;
+    canvas.width = canvas.offsetWidth * 2;
+    canvas.height = canvas.offsetHeight * 2;
     ctx.scale(2, 2);
 
-    // Create a simple line chart visualization
     const data = [
         { month: 'Jan', revenue: 65000, forecast: 70000 },
         { month: 'Feb', revenue: 78000, forecast: 82000 },
@@ -130,11 +108,9 @@ function initializeAnalyticsChart() {
     const startX = 40;
     const startY = 40;
 
-    // Clear canvas
     ctx.fillStyle = '#1a1a1a';
     ctx.fillRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
 
-    // Draw grid lines
     ctx.strokeStyle = '#2a2a2a';
     ctx.lineWidth = 1;
     for (let i = 0; i <= 5; i++) {
@@ -145,7 +121,6 @@ function initializeAnalyticsChart() {
         ctx.stroke();
     }
 
-    // Draw revenue line
     ctx.strokeStyle = '#ff6b35';
     ctx.lineWidth = 3;
     ctx.beginPath();
@@ -160,7 +135,6 @@ function initializeAnalyticsChart() {
     });
     ctx.stroke();
 
-    // Draw forecast line
     ctx.strokeStyle = '#4ade80';
     ctx.lineWidth = 2;
     ctx.setLineDash([5, 5]);
@@ -177,26 +151,22 @@ function initializeAnalyticsChart() {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    // Draw data points
     data.forEach((point, index) => {
         const x = startX + (chartWidth / (data.length - 1)) * index;
         const revenueY = startY + chartHeight - (point.revenue / 100000) * chartHeight;
         const forecastY = startY + chartHeight - (point.forecast / 100000) * chartHeight;
 
-        // Revenue points
         ctx.fillStyle = '#ff6b35';
         ctx.beginPath();
         ctx.arc(x, revenueY, 4, 0, Math.PI * 2);
         ctx.fill();
 
-        // Forecast points
         ctx.fillStyle = '#4ade80';
         ctx.beginPath();
         ctx.arc(x, forecastY, 3, 0, Math.PI * 2);
         ctx.fill();
     });
 
-    // Add labels
     ctx.fillStyle = '#888';
     ctx.font = '12px Inter, sans-serif';
     ctx.textAlign = 'center';
@@ -208,7 +178,7 @@ function initializeAnalyticsChart() {
 
 function initializeFeatureShowcase() {
     const featureItems = document.querySelectorAll('.feature-showcase-item');
-    
+
     featureItems.forEach(item => {
         item.addEventListener('mouseenter', function() {
             this.classList.add('active');
@@ -218,7 +188,7 @@ function initializeFeatureShowcase() {
                 image.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
             }
         });
-        
+
         item.addEventListener('mouseleave', function() {
             this.classList.remove('active');
             const image = this.querySelector('.feature-image');
@@ -235,16 +205,13 @@ function initializeTabs() {
 
     tabs.forEach(tab => {
         tab.addEventListener('click', function() {
-            // Remove active class from all tabs
             tabs.forEach(t => t.classList.remove('active'));
-            // Add active class to clicked tab
             this.classList.add('active');
         });
     });
 }
 
 function addSmoothScrolling() {
-    // Add smooth scrolling to any anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -265,18 +232,13 @@ function initializeMobileMenu() {
     const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
 
     if (!mobileMenuToggle || !mobileMenu) {
-        console.log('Mobile menu elements not found');
         return;
     }
 
-    console.log('Mobile menu initialized successfully');
-
-    // Toggle mobile menu
     mobileMenuToggle.addEventListener('click', function() {
         mobileMenuToggle.classList.toggle('active');
         mobileMenu.classList.toggle('active');
 
-        // Prevent body scroll when menu is open
         if (mobileMenu.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
         } else {
@@ -284,7 +246,6 @@ function initializeMobileMenu() {
         }
     });
 
-    // Close menu when clicking on menu items
     mobileNavItems.forEach(item => {
         item.addEventListener('click', function() {
             mobileMenuToggle.classList.remove('active');
@@ -293,7 +254,6 @@ function initializeMobileMenu() {
         });
     });
 
-    // Close menu when clicking outside
     mobileMenu.addEventListener('click', function(e) {
         if (e.target === mobileMenu) {
             mobileMenuToggle.classList.remove('active');
@@ -302,7 +262,6 @@ function initializeMobileMenu() {
         }
     });
 
-    // Close menu on escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
             mobileMenuToggle.classList.remove('active');
@@ -311,7 +270,6 @@ function initializeMobileMenu() {
         }
     });
 
-    // Handle window resize
     window.addEventListener('resize', function() {
         if (window.innerWidth > 767) {
             mobileMenuToggle.classList.remove('active');
@@ -322,70 +280,64 @@ function initializeMobileMenu() {
 }
 
 function addInteractiveEffects() {
-    // Add hover effects to navigation items
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(item => {
         item.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-1px)';
         });
-        
+
         item.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
         });
     });
-    
-    // Add click effects to buttons
+
     const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
-            // Create ripple effect
             const ripple = document.createElement('span');
             const rect = this.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
             const x = e.clientX - rect.left - size / 2;
             const y = e.clientY - rect.top - size / 2;
-            
+
             ripple.style.width = ripple.style.height = size + 'px';
             ripple.style.left = x + 'px';
             ripple.style.top = y + 'px';
             ripple.classList.add('ripple');
-            
+
             this.appendChild(ripple);
-            
+
             setTimeout(() => {
                 ripple.remove();
             }, 600);
         });
     });
-    
-    // Add hover effects to calculation items
+
     const calcItems = document.querySelectorAll('.calc-item');
     calcItems.forEach(item => {
         item.addEventListener('mouseenter', function() {
             this.style.backgroundColor = '#2a2a2a';
             this.style.borderRadius = '6px';
         });
-        
+
         item.addEventListener('mouseleave', function() {
             this.style.backgroundColor = 'transparent';
         });
     });
-    
-    // Add hover effects to company logos
+
     const logoItems = document.querySelectorAll('.logo-item');
     logoItems.forEach(item => {
         item.addEventListener('mouseenter', function() {
             this.style.color = '#ffffff';
             this.style.transform = 'scale(1.05)';
         });
-        
+
         item.addEventListener('mouseleave', function() {
             this.style.color = '#666';
             this.style.transform = 'scale(1)';
         });
     });
-    
-    // Add parallax effect to hero section
+
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
         const heroSection = document.querySelector('.hero-section');
@@ -395,7 +347,6 @@ function addInteractiveEffects() {
     });
 }
 
-// Add CSS for ripple effect
 const style = document.createElement('style');
 style.textContent = `
     .ripple {
@@ -421,7 +372,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Add loading animation
+
 window.addEventListener('load', function() {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease-in-out';
@@ -431,7 +382,6 @@ window.addEventListener('load', function() {
     }, 100);
 });
 
-// Add scroll-based animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -446,7 +396,6 @@ const observer = new IntersectionObserver(function(entries) {
     });
 }, observerOptions);
 
-// Observe elements for animation
 document.addEventListener('DOMContentLoaded', function() {
     const animatedElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-video-container, .one-home-section, .analytics-section, .trusted-section, .footer');
 
